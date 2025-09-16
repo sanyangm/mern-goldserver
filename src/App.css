@@ -1,10 +1,159 @@
-.App {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Basis: sauberes Box-Sizing und Typografie */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 2rem;
+:root {
+  --bg: #0f1116; /* dunkler Hintergrund */
+  --card: #1a1f2b; /* Kartenfläche */
+  --muted: #a8b1c0;
+  --text: #eef2ff;
+  --accent: #4cc38a; /* für Success/Highlights */
+  --border: #2b3242;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  --radius: 16px;
+  --gap: 16px;
+}
+
+#root {
+  width: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
+}
+
+/* Zentrierter, begrenzter Content */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Hero-Kopfzeile */
+.hero {
+  background: radial-gradient(
+    1200px 400px at 10% 0%,
+    #22324a 0%,
+    #1b2433 60%,
+    #151a24 100%
+  );
+  border-bottom: 1px solid var(--border);
+  padding: 48px 0;
+}
+.hero h1 {
+  margin: 0 0 8px 0;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  /* responsive Größe: schrumpft auf kleineren Screens */
+  font-size: clamp(28px, 3.6vw + 8px, 48px);
+}
+.hero p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Karten/Section */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-block: 24px;
+}
+.card h2 {
+  margin-top: 0;
+  font-size: clamp(20px, 2vw + 8px, 28px);
+  color: #d7def0;
+}
+
+/* Status/Alert */
+.alert {
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin: 16px 0;
+  border: 1px solid var(--border);
+  background: #11251b;
+  color: #c9f3dc;
+}
+.alert.success {
+  border-color: #1d3b2b;
+}
+
+/* Formular-Grid: 1 Spalte mobil, 2 Spalten ab 900px */
+.form-grid {
+  display: grid;
+  gap: var(--gap);
+}
+@media (min-width: 900px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .form-grid .full {
+    grid-column: 1 / -1; /* Elemente über volle Breite */
+  }
+}
+
+/* Inputs konsistent gestalten (falls du native Inputs nutzt) */
+input[type="text"],
+input[type="number"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #121725;
+  color: var(--text);
+  outline: none;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #7f8798;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Buttons */
+button {
+  appearance: none;
+  border: 1px solid #2d59a9;
+  background: linear-gradient(180deg, #3466c2, #2b54a0);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+button:hover {
+  filter: brightness(1.06);
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  filter: none;
+}
+
+/* Überschriften */
+h1,
+h2,
+h3 {
+  letter-spacing: 0.2px;
 }
