@@ -129,22 +129,7 @@ export default function Countries() {
       {/* Karte (Platzhalter) */}
       <section className="card" style={{ opacity: 0.9 }}>
         <h3 style={{ marginTop: 0 }}>🗺️ Karte</h3>
-        <p style={{ marginTop: 8, color: "var(--muted)" }}>
-          MapLibre wird konfiguriert – Platzhalterfläche.
-          <MapComponent countries={countries} height={260} />
-        </p>
-        <div
-          style={{
-            height: 260,
-            border: "1px dashed var(--border)",
-            borderRadius: 12,
-            display: "grid",
-            placeItems: "center",
-            background: "#121725",
-          }}
-        >
-          <span style={{ opacity: 0.7 }}>Kartenfläche</span>
-        </div>
+        <MapComponent countries={countries} height={260} />
       </section>
 
       {/* Liste aller Länder */}
