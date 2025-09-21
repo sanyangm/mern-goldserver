@@ -157,6 +157,26 @@ app.get("/api/countries/:id", async (req, res) => {
   }
 });
 
+// Ein bestimmtes Land bearbeiten
+app.put("/api/countries/:id", async (req, res) => {
+  try {
+    const updateCountry = await Country.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    if (!updateCountry) {
+      return res.status(404).json({ message: "Land nicht gefunden" });
+    }
+
+    console.log('Bearbeitet:', updateCountry.name);
+    res.json(updateCountry);
+  } catch (error) {
+    console.error("Fehler beim Bearbeiten:", error);
+    res.status(500).json({ message: "Fehler beim Bearbeiten" });
+  }
+});
+
 // TEST ROUTE
 app.get("/", async (req, res) => {
   try {
