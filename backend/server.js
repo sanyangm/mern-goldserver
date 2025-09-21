@@ -144,6 +144,19 @@ app.delete("/api/countries/:id", async (req, res) => {
   }
 });
 
+// Ein bestimmtes Land aufrufen
+app.get("/api/countries/:id", async (req, res) => {
+  try {
+    const country = await Country.findById(req.params.id);
+    if (!country) {
+      return res.status(404).json({ message: "Land nicht gefunden" });
+    }
+    res.json(country);
+  } catch (error) {
+    res.status(500).json({ message: "Fehler beim Laden" });
+  }
+});
+
 // TEST ROUTE
 app.get("/", async (req, res) => {
   try {
