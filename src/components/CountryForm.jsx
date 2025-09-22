@@ -62,8 +62,10 @@ const CountryForm = ({ onSave }) => {
     'australien': { lat: -25.2744, lng: 133.7751, capital: 'Canberra' },
     'australia': { lat: -25.2744, lng: 133.7751, capital: 'Canberra' },
     'gambia': { lat: 13.4432, lng: -15.3101, capital: 'Banjul' },
-    'senegal': { lat: 14.4974, lng: -14.4524, capital: 'Dakar' }
+    'senegal': { lat: 14.4974, lng: -14.4524, capital: 'Dakar' },
     // Weitere Länder können hier hinzugefügt werden
+    'ägypten': { lat: 26.8206, lng: 30.8025, capital: 'Kairo' },
+    'ethiopia': { lat: 9.1450, lng: 40.4897, capital: 'Addis Abeba' }
   };
 
   // Wird aufgerufen wenn User Land-Name eingibt
