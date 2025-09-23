@@ -41,7 +41,7 @@ const connectDB = async () => {
   }
 };
 
-// COUNTRY SCHEMA - MIT KOORDINATEN FÜR KARTE
+// COUNTRY SCHEMA - MIT KOORDINATEN FÜR KARTE Datenmodell
 const CountrySchema = new mongoose.Schema(
   {
     name: {
